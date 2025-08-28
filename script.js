@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Função para calcular a soma dos produtos dos pares consecutivos
   function calculateSumOfProducts(numbers) {
-    if (numbers.length <= 1) return 0;
+    // Se a lista estiver vazia ou tiver apenas um número, retorna 0
+    if (numbers.length <= 1) {
+      return { sum: 0, steps: [] };
+    }
 
     let sum = 0;
     let steps = [];
@@ -56,8 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Exibir os passos do cálculo
     if (steps.length > 0) {
       calculationSteps.textContent = `Cálculo: ${steps.join(' + ')} = ${sum}`;
+    } else if (numbersArray.length === 1) {
+      calculationSteps.textContent = 'Lista com apenas um elemento. Resultado: 0';
     } else {
-      calculationSteps.textContent = 'Lista com menos de 2 elementos. Resultado: 0';
+      calculationSteps.textContent = 'Lista vazia. Resultado: 0';
     }
   });
 
